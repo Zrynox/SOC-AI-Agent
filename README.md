@@ -336,10 +336,4 @@ Close all other database connections and try again
 - [ ] Threat feed integration
 - [ ] Machine learning anomaly detection
 
-## License
 
-Educational/Demo - Use responsibly
-
-## Contact
-
-For improvements or issues, create an issue in the repository.
