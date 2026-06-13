@@ -1,0 +1,126 @@
+================================================================================
+SECURITY OPERATIONS CENTER - INCIDENT REPORT
+================================================================================
+Generated: 2026-06-11 18:45:05
+Severity: KRYTYCZNE
+Events Analyzed: 42
+================================================================================
+
+**SOC Incident Report**
+
+**EXECUTIVE SUMMARY**
+
+A coordinated brute force attack (COordinated_BRUTE_FORCE) has been detected, targeting multiple endpoints on our network. The attack involves three unique IP addresses: 45.133.1.20, 91.240.118.44, and 185.220.101.5.
+
+Impact Assessment:
+The attackers have attempted to exploit public-facing applications, using SQL injection (SQLI) and log4shell vulnerabilities. While no successful exploitation was detected, the sheer volume of attempts suggests a high likelihood of success if not addressed promptly.
+
+Recommended Immediate Action:
+
+* Immediately block all traffic from the identified malicious IP addresses.
+* Conduct an emergency review of our security posture to identify any potential weaknesses that may have been exploited.
+* Implement additional security measures to prevent similar attacks in the future.
+
+**TECHNICAL ANALYSIS**
+
+Attack Vectors Used:
+The attackers employed a combination of active scanning (TA0043), exploit public-facing application (TA0001), and password guessing (TA0006) techniques.
+
+Compromised/Targeted Systems:
+The attackers targeted multiple endpoints, including /admin/login.php, /shop/products, /index.html, and /wp-admin.
+
+Attack Flow Timeline:
+
+* 11/Jun/2026:13:44:24 +0200 - 45.133.1.20 initiates active scanning against /etc/passwd.
+* 11/Jun/2026:13:49:06 +0200 - 91.240.118.44 attempts SQL injection against /shop/products.
+* 11/Jun/2026:13:51:54 +0200 - 185.220.101.5 initiates active scanning and brute force attacks against /admin/login.php.
+
+**INDICATORS OF COMPROMISE (IOCs)**
+
+Malicious IPs:
+
+* 45.133.1.20
+* 91.240.118.44
+* 185.220.101.5
+
+Suspicious URLs/Endpoints:
+
+* /admin/login.php
+* /shop/products
+* /index.html
+* /wp-admin
+
+Attack Signatures Detected:
+
+* SQLI attempts against /shop/products
+* Log4shell vulnerabilities in /index.html
+* Brute force attacks against /admin/login.php
+
+**MITRE ATT&CK FRAMEWORK**
+
+Techniques Identified:
+
+* TA0043 - Active Scanning
+* TA0001 - Exploit Public-Facing Application
+* TA0006 - Password Guessing
+
+Tactics Employed by Attacker:
+
+* Reconnaissance (TA0043)
+* Initial Access (TA0001)
+* Persistence (TA0006)
+
+**THREAT INTELLIGENCE**
+
+Attack Sophistication Level:
+The attackers demonstrated a moderate level of sophistication, using a combination of known vulnerabilities and techniques.
+
+Likely Attacker Profile:
+Based on the attack vectors used, it is likely that the attacker is a nation-state actor or a sophisticated cybercrime group.
+
+Attribution:
+No attribution can be made at this time due to the lack of specific indicators.
+
+**RECOMMENDATIONS (PRIORITIZED)**
+
+Immediate Remediation Steps:
+
+* Block all traffic from the identified malicious IP addresses.
+* Conduct an emergency review of our security posture to identify any potential weaknesses that may have been exploited.
+
+Long-term Security Improvements:
+
+* Implement additional security measures to prevent similar attacks in the future, such as:
+	+ Regularly updating and patching software
+	+ Implementing a web application firewall (WAF)
+	+ Conducting regular penetration testing
+
+Detection/Prevention Rules to Implement:
+
+* Monitor for SQLI attempts against /shop/products.
+* Monitor for log4shell vulnerabilities in /index.html.
+* Monitor for brute force attacks against /admin/login.php.
+
+**APPENDIX**
+
+Full Event Timeline:
+The full event timeline is provided below:
+
+[11/Jun/2026:13:44:24 +0200] 45.133.1.20 - SCAN: /etc/passwd (Status: 404)
+[11/Jun/2026:13:49:06 +0200] 91.240.118.44 - SQLI: /shop/products?id=1%20OR%201=1 (Status: 500)
+[11/Jun/2026:13:51:54 +0200] 185.220.101.5 - SCAN: /admin/login.php (Status: 403)
+[11/Jun/2026:13:55:58 +0200] 185.220.101.5 - BRUTE_FORCE: /admin/login.php (Status: 403)
+
+Detailed IOCs Reference:
+The detailed IOCs reference is provided below:
+
+* Malicious IPs: 45.133.1.20, 91.240.118.44, 185.220.101.5
+* Suspicious URLs/Endpoints: /admin/login.php, /shop/products, /index.html, /wp-admin
+* Attack Signatures Detected:
+	+ SQLI attempts against /shop/products
+	+ Log4shell vulnerabilities in /index.html
+	+ Brute force attacks against /admin/login.php
+
+================================================================================
+DATABASE LOCATION: F:\AI SECURITY AGENT\soc_events.db
+================================================================================

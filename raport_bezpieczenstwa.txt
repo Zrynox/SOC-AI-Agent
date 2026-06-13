@@ -1,0 +1,35 @@
+Oto raport z incydentu bezpieczeństwa:
+
+================================================================================
+          RAPORT INCYDENTU BEZPIECZEŃSTWA: KRYTYCZNE
+================================================================================
+
+1. INFORMACJE METRYCZNE:
+------------------------
+• Data i czas zdarzenia: 11/Jun/2026:13:10:17 +0200 do 11/Jun/2026:14:00:07 +0200
+• Adres źródłowy (SRC):
+  - 185.220.101.5 (Kontekst zagrożenia: Węzeł wyjściowy sieci TOR)
+  - 45.133.1.20 (Kontekst zagrożenia: Zidentyfikowany skaner podatności)
+  - 91.240.118.44 (Kontekst zagrożenia: Serwer Command & Control - C2)
+• Adres docelowy (DST): Wirtualne hosty serwera (ai-security.local)
+• Adresy MAC: Niedostępne w logach warstwy aplikacyjnej (HTTP)
+
+2. ANALIZA I ANALITYKA (MITRE ATT&CK):
+--------------------------------------
+• Opis zdarzenia: Zidentyfikowano trzy intruzji, które próbowały zaatakować serwer Wirtualnych Hostów. Adwersarze wykorzystali różne techniki i taktyki, w tym brute force, skanowanie podatności oraz eksploatację publicznie dostępnych aplikacji.
+
+• Mapowanie MITRE ATT&CK:
+  - 185.220.101.5: T1110.001 - Brute Force: Password Guessing (TA0006 - Credential Access)
+  - 45.133.1.20: T1595.002 - Active Scanning: Vulnerability Scanning (TA0043 - Reconnaissance)
+  - 91.240.118.44: T1190 - Exploit Public-Facing Application (TA0001 - Initial Access)
+
+• Rekomendacje działań:
+  - Zablokuj adresy IP atakujących na poziomie zapory ogniowej.
+  - Aktywuj regułę WAF w celu filtrowania payloadów.
+  - Przekieruj ruch do środowiska izolowanego (Honeypot) w celu monitorowania i analizy zachowań adwersarzy.
+
+3. STATUS I PODJĘTE DZIAŁANIA:
+------------------------------
+[V] Blokada IP na poziomie zapory ogniowej (Firewall Drop Rule) - ZAKOŃCZONE
+[V] Przekierowano ruch do środowiska izolowanego (Honeypot) - ZAKOŃCZONE
+[V] Aktywowano regułę WAF (Web Application Firewall) w celu filtrowania payloadów - ZAKOŃCZONE

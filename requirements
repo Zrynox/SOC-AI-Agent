@@ -1,0 +1,17 @@
+langchain 
+wikipedia 
+langchain-community 
+langchain-openai
+langchain-anthropic
+python-dotenv
+pydantic
+duckduckgo-search
+vt-py
+shodan
+abuseipdb
+stix2
+chromadb
+pypdf
+pandas
+regex
+langgraph
